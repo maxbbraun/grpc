@@ -116,7 +116,7 @@ Status DefaultHealthCheckService::HealthCheckServiceImpl::Check(
 }
 
 DefaultHealthCheckService::DefaultHealthCheckService() {
-  services_map_.emplace("", true);
+  services_map_.insert(std::make_pair<grpc::string, bool>("", true));
 }
 
 void DefaultHealthCheckService::SetServingStatus(
